@@ -1,0 +1,16 @@
+<h1>Cheers!</h1>
+<br/>
+<br/>
+<p>jakiś tekst jakiś tekst jakiś tekst jakiś tekst jakiś tekst jakiś tekst jakiś tekst</p>
+<br/>
+<br/>
+<% form_tag(:controller => "coctails", :action => "search", :method => "get") do %>
+	<%= label_tag(:q, "Szukaj drinka:") %>
+	<%= text_field_tag(:query) %>
+	<%= submit_tag("Szukaj") %>
+<% end %>
+<% form_tag(:controller => "coctails", :action => "search_by_ingredients", :method => "get") do %>
+	<%= label_tag(:q, "Szukaj po składnikach:") %>
+	<%= text_field_tag(:query) %>
+	<%= submit_tag("Szukaj") %>
+<% end %>
