@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<buildpath>
-	<buildpathentry kind="src" path=""/>
-	<buildpathentry kind="con" path="org.eclipse.dltk.launching.INTERPRETER_CONTAINER"/>
-	<buildpathentry external="true" kind="lib" path="/usr/lib/ruby/gems/1.8/gems/rails-2.3.5/bin"/>
-	<buildpathentry external="true" kind="lib" path="/usr/lib/ruby/gems/1.8/gems/rake-0.8.7/lib"/>
-</buildpath>
