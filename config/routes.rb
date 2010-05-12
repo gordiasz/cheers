@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :coctails
   map.resources :ingredients
+  map.resources :ingredients, :has_many => :coctails
   
   map.root :controller => 'start'
   

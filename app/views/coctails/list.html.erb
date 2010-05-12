@@ -1,0 +1,9 @@
+<h1>Drinki</h1>
+
+<table>
+<% @coctails.each do |coctail| %>
+  <tr>
+    <td><%= link_to "#{coctail.name}", coctail %></td>
+  </tr>
+<% end %>
+</table>

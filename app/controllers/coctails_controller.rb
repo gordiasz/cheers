@@ -1,33 +1,42 @@
 class CoctailsController < ApplicationController
-  # GET /coctails
   def index
+    if params[:ingredient_id]
+      ing = Ingredient.find(params[:ingredient_id])
+      @ingredients = [ing]
+      @coctails = ing.coctails
+      render :list_by_ingredients
+    else
+      @coctails = Coctail.all
+      render :list
+    end
+  end
+  
+  def list
     @coctails = Coctail.all
   end
-
-  # GET /coctails/1
+  
   def show
     @coctail = Coctail.find(params[:id])
   end
   
   def search
     @coctails = Coctail.search(params[:query])
+    render :list
   end
   
   def search_by_ingredients
     @coctails = Coctail.search(params[:query])
+    render :list
   end
-
-  # GET /coctails/new
+  
   def new
     @coctail = Coctail.new
   end
 
-  # GET /coctails/1/edit
   def edit
     @coctail = Coctail.find(params[:id])
   end
 
-  # POST /coctails
   def create
     @coctail = Coctail.new(params[:coctail])
 
@@ -40,8 +49,7 @@ class CoctailsController < ApplicationController
       end
     end
   end
-
-  # PUT /coctails/1
+  
   def update
     @coctail = Coctail.find(params[:id])
 
@@ -54,8 +62,7 @@ class CoctailsController < ApplicationController
       end
     end
   end
-
-  # DELETE /coctails/1
+    
   def destroy
     @coctail = Coctail.find(params[:id])
     @coctail.destroy

@@ -1,0 +1,13 @@
+<h1>Drinki zawierające:
+<% @ingredients.each do |ingredient| %>
+	<%=h ingredient.name %> 
+<% end %>
+</h1>
+
+<table>
+<% @coctails.each do |coctail| %>
+  <tr>
+    <td><%= link_to "#{coctail.name}", coctail %></td>
+  </tr>
+<% end %>
+</table>

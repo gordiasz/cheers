@@ -2123,3 +2123,1567 @@ Rendering template within layouts/ingredients
 Rendering ingredients/edit
 Rendered shared/_menu (0.6ms)
 Completed in 28ms (View: 19, DB: 0) | 200 OK [http://localhost/ingredients/8/edit]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 19:50:32) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (13.9ms)
+Completed in 152ms (View: 150, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#search_by_ingredients (for 127.0.0.1 at 2010-05-12 19:54:39) [POST]
+  Parameters: {"commit"=>"Szukaj", "method"=>"get", "authenticity_token"=>"K5d47MlH5eZiI8XeC6xRjhGXQCrHe2qTxDgdM6VV73Q=", "query"=>"a"}
+  [4;36;1mCoctail Load (1.2ms)[0m   [0;1mSELECT * FROM "coctails" WHERE (name LIKE '%a%') [0m
+
+ActionView::MissingTemplate (Missing template coctails/search_by_ingredients.erb in view path app/views):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 20:03:44) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.4ms)
+Completed in 11ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#search_by_ingredients (for 127.0.0.1 at 2010-05-12 20:03:46) [POST]
+  Parameters: {"commit"=>"Szukaj", "method"=>"get", "authenticity_token"=>"K5d47MlH5eZiI8XeC6xRjhGXQCrHe2qTxDgdM6VV73Q=", "query"=>"a"}
+  [4;35;1mCoctail Load (0.9ms)[0m   [0mSELECT * FROM "coctails" WHERE (name LIKE '%a%') [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.6ms)
+Completed in 60ms (View: 51, DB: 1) | 200 OK [http://localhost/coctails/search_by_ingredients?method=get]
+
+
+Processing CoctailsController#search_by_ingredients (for 127.0.0.1 at 2010-05-12 20:04:10) [POST]
+  Parameters: {"commit"=>"Szukaj", "method"=>"get", "authenticity_token"=>"K5d47MlH5eZiI8XeC6xRjhGXQCrHe2qTxDgdM6VV73Q=", "query"=>"a"}
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" WHERE (name LIKE '%a%') [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 20ms (View: 10, DB: 1) | 200 OK [http://localhost/coctails/search_by_ingredients?method=get]
+
+
+Processing CoctailsController#search (for 127.0.0.1 at 2010-05-12 20:05:33) [POST]
+  Parameters: {"commit"=>"Szukaj", "method"=>"get", "authenticity_token"=>"K5d47MlH5eZiI8XeC6xRjhGXQCrHe2qTxDgdM6VV73Q=", "query"=>"a"}
+  [4;35;1mCoctail Load (0.8ms)[0m   [0mSELECT * FROM "coctails" WHERE (name LIKE '%a%') [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 21ms (View: 11, DB: 1) | 200 OK [http://localhost/coctails/search?method=get]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:05:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+Rendered shared/_menu (0.4ms)
+Completed in 35ms (View: 25, DB: 0) | 200 OK [http://localhost/coctails/1]
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateIngredients (20100401205846)
+Migrating to CreateCoctailsIngredients (20100401234400)
+Migrating to CreateCoctails (20100510181416)
+Migrating to AddRecipeToCoctails (20100512180907)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mALTER TABLE "coctails" ADD "recipe" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100512180907')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("coctails")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_list("coctails_ingredients")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_coctails_ingredients_on_coctail_id_and_ingredient_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("ingredients")[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddRecipeToCoctails (20100512180907)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mCREATE TEMPORARY TABLE "altered_coctails" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime, "recipe" varchar(255)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("coctails")[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mDROP TABLE "coctails"[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "coctails" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("altered_coctails")[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mDROP TABLE "altered_coctails"[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mDELETE FROM schema_migrations WHERE version = '20100512180907'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("coctails")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("coctails_ingredients")[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mPRAGMA index_info('index_coctails_ingredients_on_coctail_id_and_ingredient_id')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("ingredients")[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateIngredients (20100401205846)
+Migrating to CreateCoctailsIngredients (20100401234400)
+Migrating to CreateCoctails (20100510181416)
+Migrating to AddRecipeToCoctails (20100512180907)
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mALTER TABLE "coctails" ADD "recipe" text[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100512180907')[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("coctails")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("coctails_ingredients")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_coctails_ingredients_on_coctail_id_and_ingredient_id')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("ingredients")[0m
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:15:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+Rendered shared/_menu (0.5ms)
+Completed in 16ms (View: 6, DB: 0) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:15:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.6ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+Rendered shared/_menu (0.4ms)
+Completed in 98ms (View: 86, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:16:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+Rendered shared/_menu (0.4ms)
+Completed in 23ms (View: 11, DB: 0) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:18:23) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (0.9ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 33ms (View: 21, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:18:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (1.0ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 32ms (View: 20, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:19:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.3ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (1.2ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 32ms (View: 20, DB: 2) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:20:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.3ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (0.9ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 32ms (View: 20, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:21:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (0.9ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.6ms)
+Completed in 33ms (View: 21, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:21:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.5ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (0.9ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 34ms (View: 21, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:21:34) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mCoctail Load (0.6ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 2) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (1.9ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 2 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 34ms (View: 17, DB: 3) | 200 OK [http://localhost/coctails/2]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:21:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (4.8ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (1.3ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.6ms)
+Completed in 40ms (View: 21, DB: 6) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 20:21:56) [GET]
+  [4;36;1mCoctail Load (1.4ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 26ms (View: 17, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:22:16) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mCoctail Load (0.6ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 2) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (1.1ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 2 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 30ms (View: 14, DB: 2) | 200 OK [http://localhost/coctails/2]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:23:04) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 2) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (1.2ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 2 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 104ms (View: 92, DB: 2) | 200 OK [http://localhost/coctails/2]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 20:23:15) [GET]
+  [4;35;1mIngredient Load (1.7ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (2.5ms)
+Completed in 109ms (View: 98, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 20:23:21) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.4ms)
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 20:24:04) [GET]
+  [4;36;1mCoctail Load (1.2ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 27ms (View: 18, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:24:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (0.9ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 26ms (View: 14, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:24:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.6ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (0.9ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 27ms (View: 14, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:24:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.3ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (1.0ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 33ms (View: 21, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:58:39) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (0.9ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 25ms (View: 14, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 20:58:40) [GET]
+  [4;35;1mCoctail Load (1.4ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 20:58:51) [GET]
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 22ms (View: 13, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 20:59:05) [GET]
+  [4;35;1mCoctail Load (1.0ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 23ms (View: 14, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 20:59:11) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (0.8ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 23ms (View: 12, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:00:21) [GET]
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 15ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:00:33) [GET]
+  [4;35;1mCoctail Load (1.2ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.5ms)
+Completed in 95ms (View: 86, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 21:00:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (0.9ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 26ms (View: 15, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:02:37) [GET]
+  [4;36;1mCoctail Load (1.0ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 22ms (View: 13, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:02:45) [GET]
+  [4;35;1mCoctail Load (1.2ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 17ms (View: 6, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 21:02:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (1.0ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 30ms (View: 19, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 21:02:49) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.6ms)
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:02:50) [GET]
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 15ms (View: 8, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:02:51) [GET]
+  [4;35;1mIngredient Load (1.6ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.5ms)
+Completed in 137ms (View: 126, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:02:53) [GET]
+  [4;36;1mCoctail Load (1.0ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 18ms (View: 9, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:04:21) [GET]
+  [4;35;1mCoctail Load (1.3ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 17ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:04:22) [GET]
+  [4;36;1mIngredient Load (1.6ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.6ms)
+Completed in 27ms (View: 16, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:04:34) [GET]
+  [4;35;1mIngredient Load (1.8ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 26ms (View: 16, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:04:46) [GET]
+  [4;36;1mIngredient Load (1.6ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 26ms (View: 16, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:04:50) [GET]
+  [4;35;1mCoctail Load (0.9ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 16ms (View: 8, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:04:52) [GET]
+  [4;36;1mIngredient Load (1.6ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 20ms (View: 10, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:04:53) [GET]
+  [4;35;1mCoctail Load (1.0ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:04:54) [GET]
+  [4;36;1mIngredient Load (2.5ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 20ms (View: 10, DB: 3) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:04:54) [GET]
+  [4;35;1mCoctail Load (1.3ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 18ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 21:04:55) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.5ms)
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:05:02) [GET]
+  [4;36;1mCoctail Load (1.0ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 21:05:03) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (0.9ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 24ms (View: 13, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:05:36) [GET]
+  [4;35;1mIngredient Load (1.8ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.5ms)
+Completed in 20ms (View: 10, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing IngredientsController#show (for 127.0.0.1 at 2010-05-12 21:05:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/show
+Rendered shared/_menu (0.4ms)
+Completed in 21ms (View: 11, DB: 0) | 200 OK [http://localhost/ingredients/1]
+
+
+Processing IngredientsController#show (for 127.0.0.1 at 2010-05-12 21:07:18) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/show
+Rendered shared/_menu (0.4ms)
+Completed in 15ms (View: 4, DB: 0) | 200 OK [http://localhost/ingredients/1]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 21:07:21) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.4ms)
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:07:26) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create, destroy, edit, list, new, search, search_by_ingredients, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:09:04) [GET]
+
+ActionController::UnknownAction (No action responded to index. Actions: create, destroy, edit, list, new, search, search_by_ingredients, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 21:09:16) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (2.5ms)
+Completed in 21ms (View: 17, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 21:15:46) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (1.4ms)
+Completed in 18ms (View: 15, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:15:48) [GET]
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.6ms)
+Completed in 25ms (View: 16, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:15:57) [GET]
+  [4;35;1mCoctail Load (1.3ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.5ms)
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:17:12) [GET]
+  [4;36;1mCoctail Load (1.2ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/index
+Rendered shared/_menu (0.4ms)
+Completed in 18ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 21:17:14) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.7ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (1.5ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.8ms)
+Completed in 38ms (View: 20, DB: 2) | 200 OK [http://localhost/coctails/1]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:17:19) [GET]
+  [4;35;1mIngredient Load (1.6ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.5ms)
+Completed in 32ms (View: 20, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:22:47) [GET]
+  [4;36;1mIngredient Load (1.6ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 19ms (View: 10, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:22:48) [GET]
+  [4;35;1mCoctail Load (0.9ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 22ms (View: 13, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:30:22) [GET]
+  [4;36;1mCoctail Load (1.2ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (1.1ms)
+Completed in 63ms (View: 45, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 21:30:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (0.9ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 33ms (View: 20, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#1 (for 127.0.0.1 at 2010-05-12 21:30:35) [GET]
+  Parameters: {"id"=>"ingredients"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, list, list_by_ingredient, new, search, search_by_ingredients, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing CoctailsController#ingredients (for 127.0.0.1 at 2010-05-12 21:30:44) [GET]
+  Parameters: {"id"=>"1"}
+
+ActionController::UnknownAction (No action responded to ingredients. Actions: create, destroy, edit, index, list, list_by_ingredient, new, search, search_by_ingredients, show, and update):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:32:11) [GET]
+  [4;35;1mCoctail Load (0.9ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 22ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:37:23) [GET]
+  [4;36;1mIngredient Load (3.2ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (2.0ms)
+Completed in 111ms (View: 78, DB: 3) | 200 OK [http://localhost/ingredients]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:38:12) [GET]
+  [4;35;1mIngredient Load (1.7ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+
+ActionView::TemplateError (undefined method `ingredient_coctails_path' for #<ActionView::Base:0xb609f6a8>) on line #7 of app/views/ingredients/index.html.erb:
+4: 
+5: <% @ingredients.each do |ingredient| %>
+6:   <tr>
+7:     <td><%= link_to "#{ ingredient.name }", ingredient_coctails_path(ingredient) %></td>
+8:   </tr>
+9: <% end %>
+10: </table>
+
+    app/views/ingredients/index.html.erb:7
+    app/views/ingredients/index.html.erb:5:in `each'
+    app/views/ingredients/index.html.erb:5
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (83.3ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:38:25) [GET]
+  [4;36;1mIngredient Load (2.0ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+
+ActionView::TemplateError (undefined method `ingredients_coctails_path' for #<ActionView::Base:0xb5f58b00>) on line #7 of app/views/ingredients/index.html.erb:
+4: 
+5: <% @ingredients.each do |ingredient| %>
+6:   <tr>
+7:     <td><%= link_to "#{ ingredient.name }", ingredients_coctails_path(ingredient) %></td>
+8:   </tr>
+9: <% end %>
+10: </table>
+
+    app/views/ingredients/index.html.erb:7
+    app/views/ingredients/index.html.erb:5:in `each'
+    app/views/ingredients/index.html.erb:5
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (168.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:44:21) [GET]
+  [4;35;1mIngredient Load (2.4ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+
+ActionView::TemplateError (undefined method `ingredient_coctails_path' for #<ActionView::Base:0xb606e080>) on line #7 of app/views/ingredients/index.html.erb:
+4: 
+5: <% @ingredients.each do |ingredient| %>
+6:   <tr>
+7:     <td><%= link_to "#{ ingredient.name }", ingredient_coctails_path(ingredient) %></td>
+8:   </tr>
+9: <% end %>
+10: </table>
+
+    app/views/ingredients/index.html.erb:7
+    app/views/ingredients/index.html.erb:5:in `each'
+    app/views/ingredients/index.html.erb:5
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (80.9ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 21:44:24) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.7ms)
+Completed in 40ms (View: 37, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#search (for 127.0.0.1 at 2010-05-12 21:44:31) [POST]
+  Parameters: {"commit"=>"Szukaj", "method"=>"get", "authenticity_token"=>"K5d47MlH5eZiI8XeC6xRjhGXQCrHe2qTxDgdM6VV73Q=", "query"=>"a"}
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" WHERE (name LIKE '%a%') [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 32ms (View: 21, DB: 1) | 200 OK [http://localhost/coctails/search?method=get]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 21:56:47) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (1.2ms)
+Completed in 54ms (View: 51, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 21:56:49) [GET]
+  [4;36;1mIngredient Load (1.9ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.5ms)
+Completed in 49ms (View: 28, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:56:51) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;35;1mCoctail Load (1.2ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 33ms (View: 24, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:56:59) [GET]
+  Parameters: {"ingredient_id"=>"2"}
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/2/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:57:56) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;35;1mCoctail Load (1.3ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:57:59) [GET]
+  Parameters: {"ingredient_id"=>"7"}
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/7/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:58:02) [GET]
+  Parameters: {"ingredient_id"=>"8"}
+  [4;35;1mCoctail Load (1.0ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.5ms)
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/ingredients/8/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 21:59:58) [GET]
+  Parameters: {"ingredient_id"=>"4"}
+  [4;36;1mCoctail Load (0.9ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/ingredients/4/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:13:22) [GET]
+  Parameters: {"ingredient_id"=>"4"}
+  [4;36;1mSQL (1.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `ingredients' for #<Class:0xb71f9430>):
+  app/controllers/coctails_controller.rb:4:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (121.8ms)
+Rendered rescues/_request_and_response (2.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:13:48) [GET]
+  [4;35;1mIngredient Load (1.6ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (1.2ms)
+Completed in 67ms (View: 51, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:13:50) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;36;1mSQL (0.9ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `ingredients' for #<Class:0xb607e7a0>):
+  app/controllers/coctails_controller.rb:4:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (67.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:18:45) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `ingredients' for #<Class:0xb5fba2d8>):
+  app/controllers/coctails_controller.rb:4:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (147.7ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:19:23) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;36;1mSQL (1.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `ingredients' for #<Class:0xb6120528>):
+  app/controllers/coctails_controller.rb:4:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (70.1ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:20:47) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.5ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 42ms (View: 24, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:20:55) [GET]
+  Parameters: {"ingredient_id"=>"2"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.6ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 2 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 24ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/2/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:20:58) [GET]
+  Parameters: {"ingredient_id"=>"3"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 3) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.7ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 3 ) [0m
+Rendered shared/_menu (0.6ms)
+Completed in 26ms (View: 9, DB: 1) | 200 OK [http://localhost/ingredients/3/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:00) [GET]
+  Parameters: {"ingredient_id"=>"4"}
+  [4;35;1mIngredient Load (0.5ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 4) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.8ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 4 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 27ms (View: 9, DB: 1) | 200 OK [http://localhost/ingredients/4/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:02) [GET]
+  Parameters: {"ingredient_id"=>"5"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 5) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.5ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 5 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 25ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/5/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:04) [GET]
+  Parameters: {"ingredient_id"=>"6"}
+  [4;35;1mIngredient Load (0.5ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 6) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.5ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 6 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 25ms (View: 7, DB: 1) | 200 OK [http://localhost/ingredients/6/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:07) [GET]
+  Parameters: {"ingredient_id"=>"7"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 7) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.5ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 7 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 24ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/7/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:09) [GET]
+  Parameters: {"ingredient_id"=>"8"}
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 8) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.5ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 8 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 26ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/8/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:11) [GET]
+  Parameters: {"ingredient_id"=>"9"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 9) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.6ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 9 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 23ms (View: 7, DB: 1) | 200 OK [http://localhost/ingredients/9/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:27) [GET]
+  [4;35;1mCoctail Load (1.0ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:21:33) [GET]
+  [4;36;1mIngredient Load (2.1ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 91ms (View: 9, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:34) [GET]
+  [4;35;1mCoctail Load (1.0ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 22:21:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (1.0ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 32ms (View: 21, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:21:39) [GET]
+  [4;36;1mIngredient Load (1.9ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 19ms (View: 8, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:40) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.5ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 25ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:21:47) [GET]
+  Parameters: {"ingredient_id"=>"9"}
+  [4;35;1mIngredient Load (0.4ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 9) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;36;1mCoctail Load (0.7ms)[0m   [0;1mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 9 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 24ms (View: 9, DB: 1) | 200 OK [http://localhost/ingredients/9/coctails]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 22:21:54) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.4ms)
+Completed in 27ms (View: 24, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#search (for 127.0.0.1 at 2010-05-12 22:21:59) [POST]
+  Parameters: {"commit"=>"Szukaj", "method"=>"get", "authenticity_token"=>"K5d47MlH5eZiI8XeC6xRjhGXQCrHe2qTxDgdM6VV73Q=", "query"=>"wh"}
+  [4;35;1mCoctail Load (1.0ms)[0m   [0mSELECT * FROM "coctails" WHERE (name LIKE '%wh%') [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.5ms)
+Completed in 92ms (View: 82, DB: 1) | 200 OK [http://localhost/coctails/search?method=get]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 22:22:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mCoctail Load (0.4ms)[0m   [0;1mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;35;1mIngredient Load (1.1ms)[0m   [0mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.7ms)
+Completed in 27ms (View: 14, DB: 2) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:22:07) [GET]
+  [4;36;1mCoctail Load (1.1ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.5ms)
+Completed in 18ms (View: 8, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 22:22:08) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 2) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (1.6ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 2 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 30ms (View: 16, DB: 2) | 200 OK [http://localhost/coctails/2]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:22:11) [GET]
+  [4;35;1mIngredient Load (1.6ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 18ms (View: 7, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:22:19) [GET]
+  Parameters: {"ingredient_id"=>"9"}
+  [4;36;1mIngredient Load (0.3ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 9) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;35;1mCoctail Load (0.5ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 9 ) [0m
+Rendered shared/_menu (0.6ms)
+Completed in 23ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/9/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:22:22) [GET]
+  Parameters: {"ingredient_id"=>"8"}
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 8) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;35;1mCoctail Load (0.5ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 8 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 25ms (View: 8, DB: 1) | 200 OK [http://localhost/ingredients/8/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:22:26) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;36;1mIngredient Load (0.7ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;35;1mCoctail Load (0.5ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 24ms (View: 7, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:22:30) [GET]
+  [4;36;1mCoctail Load (1.2ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.5ms)
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:22:31) [GET]
+  [4;35;1mIngredient Load (2.6ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 19ms (View: 7, DB: 3) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:22:35) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;36;1mIngredient Load (0.3ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;35;1mCoctail Load (0.8ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 28ms (View: 9, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:23:35) [GET]
+  [4;36;1mCoctail Load (1.0ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.7ms)
+Completed in 17ms (View: 8, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 22:23:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.6ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (0.9ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 26ms (View: 13, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:23:39) [GET]
+  [4;35;1mIngredient Load (1.6ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 19ms (View: 8, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:23:41) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;36;1mIngredient Load (0.6ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+  [4;35;1mCoctail Load (0.5ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 24ms (View: 7, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:28:23) [GET]
+  [4;36;1mIngredient Load (1.6ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 18ms (View: 8, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:28:25) [GET]
+  [4;35;1mCoctail Load (1.3ms)[0m   [0mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 22ms (View: 11, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:28:27) [GET]
+  [4;36;1mIngredient Load (1.7ms)[0m   [0;1mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 18ms (View: 8, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:28:28) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;35;1mIngredient Load (0.3ms)[0m   [0mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list_by_ingredients
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #2 of app/views/coctails/list_by_ingredients.html.erb:
+1: <h1>Drinki zawierające
+2: <% @ing_names.each do |ing_name| %>
+3: 	<%=h ing_name %> 
+4: <% end %>
+5: </h1>
+
+    app/views/coctails/list_by_ingredients.html.erb:2
+    app/controllers/coctails_controller.rb:5:in `index'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (82.5ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:30:25) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list_by_ingredients
+  [4;35;1mCoctail Load (0.6ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 1 ) [0m
+Rendered shared/_menu (0.5ms)
+Completed in 31ms (View: 14, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:30:40) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;36;1mIngredient Load (21.7ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list_by_ingredients
+  [4;35;1mCoctail Load (0.5ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 1 ) [0m
+Rendered shared/_menu (0.8ms)
+Completed in 113ms (View: 17, DB: 22) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 22:30:45) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.4ms)
+Completed in 12ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#search (for 127.0.0.1 at 2010-05-12 22:30:52) [POST]
+  Parameters: {"commit"=>"Szukaj", "method"=>"get", "authenticity_token"=>"K5d47MlH5eZiI8XeC6xRjhGXQCrHe2qTxDgdM6VV73Q=", "query"=>"wh"}
+  [4;36;1mCoctail Load (1.3ms)[0m   [0;1mSELECT * FROM "coctails" WHERE (name LIKE '%wh%') [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.7ms)
+Completed in 29ms (View: 11, DB: 1) | 200 OK [http://localhost/coctails/search?method=get]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 22:30:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.6ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (1.2ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 26ms (View: 13, DB: 2) | 200 OK [http://localhost/coctails/1]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:31:00) [GET]
+  [4;35;1mIngredient Load (2.6ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.4ms)
+Completed in 19ms (View: 7, DB: 3) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:31:03) [GET]
+  Parameters: {"ingredient_id"=>"3"}
+  [4;36;1mIngredient Load (0.6ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 3) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list_by_ingredients
+  [4;35;1mCoctail Load (0.6ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 3 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 26ms (View: 10, DB: 1) | 200 OK [http://localhost/ingredients/3/coctails]
+
+
+Processing StartController#index (for 127.0.0.1 at 2010-05-12 22:32:20) [GET]
+Rendering template within layouts/start
+Rendering start/index
+Rendered shared/_menu (0.5ms)
+Completed in 14ms (View: 7, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:32:23) [GET]
+  [4;36;1mCoctail Load (1.4ms)[0m   [0;1mSELECT * FROM "coctails" [0m
+Rendering template within layouts/coctails
+Rendering coctails/list
+Rendered shared/_menu (0.4ms)
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://localhost/coctails]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 22:32:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (0.9ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 1 ) [0m
+Rendered shared/_menu (0.6ms)
+Completed in 26ms (View: 14, DB: 1) | 200 OK [http://localhost/coctails/1]
+
+
+Processing CoctailsController#show (for 127.0.0.1 at 2010-05-12 22:32:27) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mCoctail Load (0.4ms)[0m   [0mSELECT * FROM "coctails" WHERE ("coctails"."id" = 2) [0m
+Rendering template within layouts/coctails
+Rendering coctails/show
+  [4;36;1mIngredient Load (1.2ms)[0m   [0;1mSELECT * FROM "ingredients" INNER JOIN "coctails_ingredients" ON "ingredients".id = "coctails_ingredients".ingredient_id WHERE ("coctails_ingredients".coctail_id = 2 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 28ms (View: 14, DB: 2) | 200 OK [http://localhost/coctails/2]
+
+
+Processing IngredientsController#index (for 127.0.0.1 at 2010-05-12 22:32:35) [GET]
+  [4;35;1mIngredient Load (1.7ms)[0m   [0mSELECT * FROM "ingredients" [0m
+Rendering template within layouts/ingredients
+Rendering ingredients/index
+Rendered shared/_menu (0.7ms)
+Completed in 18ms (View: 8, DB: 2) | 200 OK [http://localhost/ingredients]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:32:36) [GET]
+  Parameters: {"ingredient_id"=>"1"}
+  [4;36;1mIngredient Load (0.3ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 1) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list_by_ingredients
+  [4;35;1mCoctail Load (0.5ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 1 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 26ms (View: 9, DB: 1) | 200 OK [http://localhost/ingredients/1/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:32:40) [GET]
+  Parameters: {"ingredient_id"=>"2"}
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 2) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list_by_ingredients
+  [4;35;1mCoctail Load (0.5ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 2 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 27ms (View: 9, DB: 1) | 200 OK [http://localhost/ingredients/2/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:32:42) [GET]
+  Parameters: {"ingredient_id"=>"3"}
+  [4;36;1mIngredient Load (0.3ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 3) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list_by_ingredients
+  [4;35;1mCoctail Load (0.7ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 3 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 27ms (View: 11, DB: 1) | 200 OK [http://localhost/ingredients/3/coctails]
+
+
+Processing CoctailsController#index (for 127.0.0.1 at 2010-05-12 22:32:48) [GET]
+  Parameters: {"ingredient_id"=>"4"}
+  [4;36;1mIngredient Load (0.4ms)[0m   [0;1mSELECT * FROM "ingredients" WHERE ("ingredients"."id" = 4) [0m
+Rendering template within layouts/coctails
+Rendering coctails/list_by_ingredients
+  [4;35;1mCoctail Load (0.5ms)[0m   [0mSELECT * FROM "coctails" INNER JOIN "coctails_ingredients" ON "coctails".id = "coctails_ingredients".coctail_id WHERE ("coctails_ingredients".ingredient_id = 4 ) [0m
+Rendered shared/_menu (0.4ms)
+Completed in 25ms (View: 9, DB: 1) | 200 OK [http://localhost/ingredients/4/coctails]

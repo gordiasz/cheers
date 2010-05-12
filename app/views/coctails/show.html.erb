@@ -1,8 +1,14 @@
-<p>
-  <b>Name:</b>
-  <%=h @coctail.name %>
-</p>
+<h1><%=h @coctail.name %></h1>
 
+<h3>Składniki:</h3>
 
-<%= link_to 'Edit', edit_coctail_path(@coctail) %> |
-<%= link_to 'Back', coctails_path %>
+<table>
+	<% @coctail.ingredients.each do |ingredient| %>
+	  <tr>
+	    <td><%=h ingredient.name %></td>
+	  </tr>
+	<% end %>
+</table>
+
+<h3>Sposób przygotowania:</h3>
+<p><%=h @coctail.recipe %></p>
