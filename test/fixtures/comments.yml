@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  coctail_id: 1
+  body: MyText
+  author: MyString
+
+two:
+  coctail_id: 1
+  body: MyText
+  author: MyString
