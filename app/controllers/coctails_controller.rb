@@ -4,7 +4,12 @@ class CoctailsController < ApplicationController
       ing = Ingredient.find(params[:ingredient_id])
       @ingredients = [ing]
       @coctails = ing.coctails
-      render :list_by_ingredients
+      
+      if @coctails.empty?
+        render :empty
+      else
+        render :list_by_ingredients
+      end
     else
       @coctails = Coctail.all
       render :list
@@ -21,12 +26,35 @@ class CoctailsController < ApplicationController
   
   def search
     @coctails = Coctail.search(params[:query])
-    render :list
+    if @coctails.empty?
+      render :empty
+    else
+      render :list
+    end
   end
   
   def search_by_ingredients
-    @coctails = Coctail.search(params[:query])
-    render :list
+    @ingredients = []
+    params[:query].split(%r{\W+}).each do |s|
+      if s.length > 2
+        Ingredient.search(s).each do |i|
+          @ingredients.push(i)
+        end
+      end
+    end
+    
+    @coctails = []
+    @ingredients.each do |i|
+      @coctails.concat(i.coctails.all)
+    end
+    
+    @coctails.uniq!
+    
+    if @coctails.empty?
+      render :empty
+    else
+      render :list_by_ingredients
+    end
   end
   
   def new

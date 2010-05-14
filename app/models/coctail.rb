@@ -4,10 +4,10 @@ class Coctail < ActiveRecord::Base
   has_many :ratings
   
   def self.search(search)
-    if search
-        find(:all, :conditions => "name LIKE '%#{ search }%'")
+    if search.length > 0
+      find(:all, :conditions => ["name LIKE ?", search+'%'])
     else
-        find(:all)
+      []
     end
   end
 end
