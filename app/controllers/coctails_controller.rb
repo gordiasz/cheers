@@ -35,17 +35,9 @@ class CoctailsController < ApplicationController
   end
   
   def search_by_ingredients
-    where1 = ""
-    where2 = []
+    ing_ids = params[:ing_ids].split(',')
     
-    params[:query].split(%r{\W+}).each do |s|
-      where1 += "name like ? or "
-      where2 += s+'%'
-    end
-    
-    where1 = where1[0...-4]
-    
-    @ingredients = Ingredient.all(:conditions => ["name like ?", 'li%'])
+    @ingredients = Ingredient.find(ing_ids)
     
     @coctails = []
     @ingredients.each do |i|

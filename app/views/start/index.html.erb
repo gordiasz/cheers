@@ -11,7 +11,9 @@
 <% end %>
 <% form_tag(:controller => "coctails", :action => "search_by_ingredients", :method => "get") do %>
 	<%= label_tag(:q, "Szukaj po składnikach:") %>
-	<%= text_field_tag(:query) %>
-	<!--<%= text_field_with_auto_complete :ingredient, :name, {}, {:method => :get} %>-->
+	<%= text_field_with_auto_complete :ingredient, :name, {}, {:method => :get,
+:after_update_element => "function(element,value){add_selected_ingredient(value.id, element.value); element.value='';}"} %>
+	<div id="selected_ing"></div><br>
 	<%= submit_tag("Szukaj") %>
+	<%= hidden_field_tag(:ing_ids, nil, :autocomplete => "off") %> 
 <% end %>

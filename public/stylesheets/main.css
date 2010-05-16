@@ -1,0 +1,18 @@
+#selected_ing {
+}
+
+.sel_ing {
+	border: 2px solid #EEEEEE;
+	width: 200px;
+	margin: 0 5px 5px 0;
+	padding: 10px;
+	background: #C3D9FF none repeat scroll 0 0;
+	float: left;
+}
+
+.del_ing {
+	border: 1px solid black;
+	background: red;
+	text-decoration: none;
+	float: right;
+}
