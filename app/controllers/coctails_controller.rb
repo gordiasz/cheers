@@ -11,13 +11,13 @@ class CoctailsController < ApplicationController
         render :list_by_ingredients
       end
     else
-      @coctails = Coctail.all
+      @coctails = Coctail.all(:order => "name")
       render :list
     end
   end
   
   def list
-    @coctails = Coctail.all
+    @coctails = Coctail.all(:order => "name")
   end
   
   def show
@@ -36,10 +36,8 @@ class CoctailsController < ApplicationController
   def search_by_ingredients
     @ingredients = []
     params[:query].split(%r{\W+}).each do |s|
-      if s.length > 2
-        Ingredient.search(s).each do |i|
-          @ingredients.push(i)
-        end
+      Ingredient.search(s).each do |i|
+        @ingredients.push(i)
       end
     end
     
@@ -67,7 +65,14 @@ class CoctailsController < ApplicationController
 
   def create
     @coctail = Coctail.new(params[:coctail])
-
+    
+    [:ing1, :ing2, :ing3, :ing4, :ing5, :ing6, :ing7, :ing8].each do |i|
+      ing_name = params[i].strip
+      if ing_name.length > 0
+        @coctail.ingredients << Ingredient.get_or_create_by_name(ing_name)
+      end
+    end
+    
     respond_to do |format|
       if @coctail.save
         flash[:notice] = 'Coctail was successfully created.'

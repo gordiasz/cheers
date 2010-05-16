@@ -1,15 +1,24 @@
-<h1>New coctail</h1>
+<h1>Dodaj drinka</h1>
 
 <% form_for(@coctail) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label 'Nazwa:' %><br />
+    <%= f.text_field :name %><br />
+	<%= f.label 'Składniki:' %><br />
+	<%= f.label 'Składnik 1:' %><%= text_field_tag :ing1 %><br />
+	<%= f.label 'Składnik 2:' %><%= text_field_tag :ing2 %><br />
+	<%= f.label 'Składnik 3:' %><%= text_field_tag :ing3 %><br />
+	<%= f.label 'Składnik 4:' %><%= text_field_tag :ing4 %><br />
+	<%= f.label 'Składnik 5:' %><%= text_field_tag :ing5 %><br />
+	<%= f.label 'Składnik 6:' %><%= text_field_tag :ing6 %><br />
+	<%= f.label 'Składnik 7:' %><%= text_field_tag :ing7 %><br />
+	<%= f.label 'Składnik 8:' %><%= text_field_tag :ing8 %><br />
+	<%= f.label 'Sposób przygotowania:' %><br />
+    <%= f.text_area :recipe %>
   </p>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Dodaj' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', coctails_path %>

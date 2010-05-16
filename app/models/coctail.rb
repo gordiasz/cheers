@@ -5,7 +5,7 @@ class Coctail < ActiveRecord::Base
   
   def self.search(search)
     if search.length > 0
-      find(:all, :conditions => ["name LIKE ?", search+'%'])
+      find(:all, :conditions => ["name LIKE ?", search+'%'], :order => "name")
     else
       []
     end
