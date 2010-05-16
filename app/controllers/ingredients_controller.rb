@@ -1,6 +1,6 @@
 class IngredientsController < ApplicationController
   def index
-    @ingredients = Ingredient.all(:order => "name")
+    @ingredients = Ingredient.all(:order => "upper(name)")
   end
   
   def new

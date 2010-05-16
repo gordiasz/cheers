@@ -6,11 +6,12 @@
 <br/>
 <% form_tag(:controller => "coctails", :action => "search", :method => "get") do %>
 	<%= label_tag(:q, "Szukaj drinka:") %>
-	<%= text_field_tag(:query) %>
+	<%= text_field_with_auto_complete :coctail, :name, {}, {:method => :get} %>
 	<%= submit_tag("Szukaj") %>
 <% end %>
 <% form_tag(:controller => "coctails", :action => "search_by_ingredients", :method => "get") do %>
 	<%= label_tag(:q, "Szukaj po składnikach:") %>
 	<%= text_field_tag(:query) %>
+	<!--<%= text_field_with_auto_complete :ingredient, :name, {}, {:method => :get} %>-->
 	<%= submit_tag("Szukaj") %>
 <% end %>

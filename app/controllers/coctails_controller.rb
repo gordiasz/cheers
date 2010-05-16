@@ -1,4 +1,5 @@
 class CoctailsController < ApplicationController
+  
   def index
     if params[:ingredient_id]
       ing = Ingredient.find(params[:ingredient_id])
@@ -11,13 +12,13 @@ class CoctailsController < ApplicationController
         render :list_by_ingredients
       end
     else
-      @coctails = Coctail.all(:order => "name")
+      @coctails = Coctail.all(:order => "upper(name)")
       render :list
     end
   end
   
   def list
-    @coctails = Coctail.all(:order => "name")
+    @coctails = Coctail.all(:order => "upper(name)")
   end
   
   def show
@@ -25,7 +26,7 @@ class CoctailsController < ApplicationController
   end
   
   def search
-    @coctails = Coctail.search(params[:query])
+    @coctails = Coctail.search(params[:coctail][:name].strip())
     if @coctails.empty?
       render :empty
     else
@@ -34,12 +35,17 @@ class CoctailsController < ApplicationController
   end
   
   def search_by_ingredients
-    @ingredients = []
+    where1 = ""
+    where2 = []
+    
     params[:query].split(%r{\W+}).each do |s|
-      Ingredient.search(s).each do |i|
-        @ingredients.push(i)
-      end
+      where1 += "name like ? or "
+      where2 += s+'%'
     end
+    
+    where1 = where1[0...-4]
+    
+    @ingredients = Ingredient.all(:conditions => ["name like ?", 'li%'])
     
     @coctails = []
     @ingredients.each do |i|

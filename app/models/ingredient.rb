@@ -3,14 +3,14 @@ class Ingredient < ActiveRecord::Base
   
   def self.search(search)
     if search.length > 0
-      find(:all, :conditions => ["name LIKE ?", search+'%'], :order => "name")
+      all(:conditions => ["name LIKE ?", search+'%'], :order => "upper(name)")
     else
       []
     end
   end
   
   def self.get_or_create_by_name(name)
-    ing = Ingredient.find(:first, :conditions => ["name = ?", name])
+    ing = Ingredient.first(:conditions => ["name = ?", name])
     if ing == nil
       ing = Ingredient.new
       ing.name = name
