@@ -1,4 +1,5 @@
 class CoctailsController < ApplicationController
+  auto_complete_for :ingredient, :name
   
   def index
     if params[:ingredient_id]
@@ -29,6 +30,9 @@ class CoctailsController < ApplicationController
     @coctails = Coctail.search(params[:coctail][:name].strip())
     if @coctails.empty?
       render :empty
+    elsif @coctails.length == 1
+      @coctail = @coctails[0]
+      render :show
     else
       render :list
     end
@@ -36,15 +40,18 @@ class CoctailsController < ApplicationController
   
   def search_by_ingredients
     ing_ids = params[:ing_ids].split(',')
+    ing_ids = ing_ids.map{|id| Integer(id)}.compact
     
     @ingredients = Ingredient.find(ing_ids)
     
-    @coctails = []
-    @ingredients.each do |i|
-      @coctails.concat(i.coctails.all)
-    end
-    
-    @coctails.uniq!
+    @coctails = Coctail.all(:conditions =>
+      ["id in
+        (select coctail_id
+        from coctails_ingredients
+        where ingredient_id in (?)
+        group by coctail_id
+        having count(ingredient_id) = ?)", ing_ids, ing_ids.length],
+      :order => "upper(name)")
     
     if @coctails.empty?
       render :empty

@@ -36,11 +36,29 @@ function remove_ingredient(id)
 		if(ings[i].id == 'ing'+id)
 		{
 			to_remove = ings[i];
+			break;
 		}
 	}
-	if(to_remove != null)
-	{
-		document.getElementById('selected_ing').removeChild(to_remove);
-	}
+	if(to_remove == null)
+		return;
 	
+	document.getElementById('selected_ing').removeChild(to_remove);
+	
+	var ing_ids = document.getElementById('ing_ids');
+	var ids = ing_ids.value.split(',');
+	
+	to_remove = null;
+	for(var i in ids)
+	{
+		if(ids[i] == id)
+		{
+			to_remove = i;
+			break;
+		}
+	}
+	if(to_remove == null)
+		return;
+	
+	ids.splice(to_remove, 1);
+	ing_ids.value = ids.join(',');
 }
