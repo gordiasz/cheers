@@ -9,14 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100514192117) do
+ActiveRecord::Schema.define(:version => 20100517133804) do
 
   create_table "coctails", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "recipe"
-    t.binary   "photo"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
   end
 
   create_table "coctails_ingredients", :id => false, :force => true do |t|

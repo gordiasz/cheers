@@ -1,5 +1,12 @@
 <h1><%=h @coctail.name %></h1>
 
+<% if @coctail.photo.exists? %>
+<p><%= image_tag @coctail.photo.url(:small) %></p>
+<% else %>
+<p>Brak zdjęcia</p>
+<% end %>
+
+
 <h3>Składniki:</h3>
 
 <table>
