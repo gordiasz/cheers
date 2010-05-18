@@ -10,10 +10,19 @@
 </head>
 <body>
 
-<%= link_to 'Start', root_path %>
-<%= link_to 'Drinki', coctails_path %>
-<%= link_to 'Składniki', ingredients_path %>
-<%= link_to 'Rejestracja', new_user_path %>
+<div>
+	<%= link_to 'Start', root_path %>
+	<%= link_to 'Drinki', coctails_path %>
+	<%= link_to 'Składniki', ingredients_path %>
+	<%= link_to 'Rejestracja', new_user_path %>
+</div>
+
+<br/>
+
+<% flash.each do |name, msg| %>
+	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
 
 <%= yield %>
 

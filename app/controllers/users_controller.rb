@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
-  acts_as_authentic
-  
   def new
     @user = User.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @user }
     end
   end
   
@@ -19,12 +16,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        flash[:notice] = 'User was successfully created.'
-        format.html { redirect_to(@user) }
-        format.xml  { render :xml => @user, :status => :created, :location => @user }
+        flash[:notice] = 'Użytkownik został zarejestrowany.'
+        format.html { redirect_to(root_path) }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -34,12 +29,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
-        format.html { redirect_to(@user) }
-        format.xml  { head :ok }
+        flash[:notice] = 'Dane użytkownika zaktualizowane.'
+        format.html { redirect_to(root_path) }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -49,8 +42,8 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.html { redirect_to(users_url) }
-      format.xml  { head :ok }
+      flash[:notice] = 'Użytkownik został usunięty.'
+      format.html { redirect_to(root_path) }
     end
   end
 end
