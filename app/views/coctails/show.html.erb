@@ -20,3 +20,8 @@
 
 <h3>Sposób przygotowania:</h3>
 <p><%=h @coctail.recipe %></p>
+
+<% if @coctail.user == current_user %>
+	<%= link_to "Zmień", edit_coctail_path(@coctail) %>
+	<%= link_to "Usuń", { :action => "destroy", :id => @coctail.id }, :confirm => "Na pewno usunąć drinka?", :method => :delete %>
+<% end %>

@@ -1,16 +1,26 @@
-<h1>Editing coctail</h1>
+<h1>Zmień drinka</h1>
 
-<% form_for(@coctail) do |f| %>
+<% form_for(@coctail, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label 'Nazwa:' %><br />
+    <%= f.text_field :name %><br />
+	<%= f.label 'Składniki:' %><br />
+	<%= f.label 'Składnik 1:' %><%= text_field_tag :ing1 %><br />
+	<%= f.label 'Składnik 2:' %><%= text_field_tag :ing2 %><br />
+	<%= f.label 'Składnik 3:' %><%= text_field_tag :ing3 %><br />
+	<%= f.label 'Składnik 4:' %><%= text_field_tag :ing4 %><br />
+	<%= f.label 'Składnik 5:' %><%= text_field_tag :ing5 %><br />
+	<%= f.label 'Składnik 6:' %><%= text_field_tag :ing6 %><br />
+	<%= f.label 'Sposób przygotowania:' %><br />
+    <%= f.text_area :recipe, :size => "50x10" %>
+	<p>
+	  	<%= f.label 'Zdjęcie' %><br />
+	  	<%= f.file_field :photo %>
+	</p>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.submit 'Zmień' %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @coctail %> |
-<%= link_to 'Back', coctails_path %>

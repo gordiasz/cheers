@@ -91,7 +91,17 @@ class CoctailsController < ApplicationController
   
   def update
     @coctail = Coctail.find(params[:id])
-
+    @coctail.user = current_user
+    
+    @coctail.ingredients = []
+    
+    [:ing1, :ing2, :ing3, :ing4, :ing5, :ing6].each do |i|
+      ing_name = params[i].strip
+      if ing_name.length > 0
+        @coctail.ingredients << Ingredient.get_or_create_by_name(ing_name)
+      end
+    end
+    
     respond_to do |format|
       if @coctail.update_attributes(params[:coctail])
         flash[:notice] = 'Drink został zaktualizowany.'
