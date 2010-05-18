@@ -70,8 +70,9 @@ class CoctailsController < ApplicationController
 
   def create
     @coctail = Coctail.new(params[:coctail])
+    @coctail.user = current_user
     
-    [:ing1, :ing2, :ing3, :ing4, :ing5, :ing6, :ing7, :ing8].each do |i|
+    [:ing1, :ing2, :ing3, :ing4, :ing5, :ing6].each do |i|
       ing_name = params[i].strip
       if ing_name.length > 0
         @coctail.ingredients << Ingredient.get_or_create_by_name(ing_name)
@@ -80,7 +81,7 @@ class CoctailsController < ApplicationController
     
     respond_to do |format|
       if @coctail.save
-        flash[:notice] = 'Coctail was successfully created.'
+        flash[:notice] = 'Drink został dodany.'
         format.html { redirect_to(@coctail) }
       else
         format.html { render :action => "new" }
@@ -93,7 +94,7 @@ class CoctailsController < ApplicationController
 
     respond_to do |format|
       if @coctail.update_attributes(params[:coctail])
-        flash[:notice] = 'Coctail was successfully updated.'
+        flash[:notice] = 'Drink został zaktualizowany.'
         format.html { redirect_to(@coctail) }
       else
         format.html { render :action => "edit" }
@@ -106,6 +107,7 @@ class CoctailsController < ApplicationController
     @coctail.destroy
 
     respond_to do |format|
+      flash[:notice] = 'Drink został usunięty.'
       format.html { redirect_to(coctails_url) }
     end
   end

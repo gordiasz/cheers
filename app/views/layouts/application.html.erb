@@ -15,7 +15,8 @@
 	<%= link_to 'Drinki', coctails_path %>
 	<%= link_to 'Składniki', ingredients_path %>
 	<% if logged_in? %>
-    	<%= link_to "Edycja profilu", edit_user_path(current_user.login) %> |
+		<%= link_to "Dodaj drinka", new_coctail_path %>
+    	<%= link_to "Edycja profilu", edit_user_path(current_user.login) %>
     	<%= link_to "Wyloguj", logout_path %>
   	<% else %>
     	<%= link_to "Rejestracja", new_user_path %>

@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :coctails
+  has_many :comments
   attr_accessible :login, :email, :password, :password_confirmation
   
   acts_as_authentic do |c|    

@@ -7,14 +7,13 @@
     <%= f.label 'Nazwa:' %><br />
     <%= f.text_field :name %><br />
 	<%= f.label 'Składniki:' %><br />
+	<%= text_field_with_auto_complete :coctail, :name, {}, {:method => :get} %>
 	<%= f.label 'Składnik 1:' %><%= text_field_tag :ing1 %><br />
 	<%= f.label 'Składnik 2:' %><%= text_field_tag :ing2 %><br />
 	<%= f.label 'Składnik 3:' %><%= text_field_tag :ing3 %><br />
 	<%= f.label 'Składnik 4:' %><%= text_field_tag :ing4 %><br />
 	<%= f.label 'Składnik 5:' %><%= text_field_tag :ing5 %><br />
 	<%= f.label 'Składnik 6:' %><%= text_field_tag :ing6 %><br />
-	<%= f.label 'Składnik 7:' %><%= text_field_tag :ing7 %><br />
-	<%= f.label 'Składnik 8:' %><%= text_field_tag :ing8 %><br />
 	<%= f.label 'Sposób przygotowania:' %><br />
     <%= f.text_area :recipe, :size => "50x10" %>
 	<p>
