@@ -2,3 +2,5 @@
 /.project
 /log
 .loadpath
+/db/schema.rb
+/db/development.sqlite3
