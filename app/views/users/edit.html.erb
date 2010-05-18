@@ -1,4 +1,4 @@
-<h1>Editing user</h1>
+<h1>Zmiana danych użytkownika</h1>
 
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
@@ -12,13 +12,14 @@
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.label 'Nowe hasło' %><br />
+    <%= f.password_field :password %>
   </p>
   <p>
-    <%= f.submit 'Update' %>
+    <%= f.label 'Powtórz hasło' %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.submit 'Zmień' %>
   </p>
 <% end %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
