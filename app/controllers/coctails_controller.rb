@@ -121,4 +121,14 @@ class CoctailsController < ApplicationController
       format.html { redirect_to(coctails_url) }
     end
   end
+  
+  def add_rating
+    @coctail = Coctail.find(params[:id])
+    @coctail.ratings.create(:rating => params[:rating], :user => current_user)
+    
+    respond_to do |format|
+      flash[:notice] = 'Ocena została dodana.'
+      format.html { redirect_to(@coctail) }
+    end
+  end
 end

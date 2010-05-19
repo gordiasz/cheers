@@ -25,3 +25,26 @@
 	<%= link_to "Zmień", edit_coctail_path(@coctail) %>
 	<%= link_to "Usuń", { :action => "destroy", :id => @coctail.id }, :confirm => "Na pewno usunąć drinka?", :method => :delete %>
 <% end %>
+
+<br/>
+<br/>
+
+<% if current_user == nil || @coctail.user == current_user || @coctail.ratings.all(:conditions => ['user_id = ?', current_user.id]).empty? == false %>
+	<p>
+		Średnia ocena: <%= @coctail.ratings.average('rating') %>
+	</p>
+	<p>
+		Ocenione przez <%= @coctail.ratings.count %> użytkowników
+	</p>
+<% else %>
+	<% form_tag({:controller => "coctails", :action => "add_rating", :id => @coctail.id}, :method => "get") do %> 
+		<%= radio_button_tag(:rating, "1") %><%= label_tag(:rating1, "1") %>
+		<%= radio_button_tag(:rating, "2") %><%= label_tag(:rating2, "2") %>
+		<%= radio_button_tag(:rating, "3") %><%= label_tag(:rating3, "3") %>
+		<%= radio_button_tag(:rating, "4") %><%= label_tag(:rating4, "4") %>
+		<%= radio_button_tag(:rating, "5") %><%= label_tag(:rating5, "5") %>
+		<p>
+			<%= submit_tag 'Oceń' %>
+		</p>
+	<% end %>
+<% end %>

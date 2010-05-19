@@ -12,7 +12,6 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.save
-        flash[:notice] = 'Ingredient was successfully created.'
         format.html { redirect_to(@ingredient) }
       else
         format.html { render :action => "new" }

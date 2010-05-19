@@ -4,6 +4,7 @@
 <% @coctails.each do |coctail| %>
   <tr>
     <td><%= link_to "#{coctail.name}", coctail %></td>
+	<td>Średnia ocena: <%= coctail.ratings.average('rating') %></td>
   </tr>
 <% end %>
 </table>
