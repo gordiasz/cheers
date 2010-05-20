@@ -3,7 +3,7 @@ class Ingredient < ActiveRecord::Base
   has_many :coctails, :through => :coctails_ingredients
   
   def self.get_or_create_by_name(name)
-    ing = Ingredient.first(:conditions => ["name = ?", name])
+    ing = Ingredient.first(:conditions => ["lower(name) = lower(?)", name])
     if ing == nil
       ing = Ingredient.new
       ing.name = name

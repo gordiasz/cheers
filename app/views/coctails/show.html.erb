@@ -1,5 +1,5 @@
 <h1><%=h @coctail.name %></h1>
-<p>Dodany przez: <%=h @coctail.user.login %></p>
+<p>Dodany <%=@coctail.created_at.strftime("%d-%m-%Y") %> przez <%=h @coctail.user.login %></p>
 
 <% if @coctail.photo.exists? %>
 <p><%= image_tag @coctail.photo.url(:small) %></p>
