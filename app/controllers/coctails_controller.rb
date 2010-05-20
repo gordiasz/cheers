@@ -1,6 +1,5 @@
 class CoctailsController < ApplicationController
   auto_complete_for :ingredient, :name
-  load_and_authorize_resource
 
   def index
     if params[:ingredient_id]

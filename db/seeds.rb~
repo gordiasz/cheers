@@ -16,7 +16,4 @@ User.create :login => 'bazylek', :email => 'bazylek@cats.com',
   :password=> '1234', :password_confirmation => '1234', 
   :roles => ["", "", "author"]
 
-Coctail.create :new => "fajny",
-  :user_id => 1
-
 
