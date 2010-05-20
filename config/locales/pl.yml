@@ -1,0 +1,25 @@
+pl:
+  activerecord:
+    errors: 
+        template: 
+            body: Popraw poniższe pola!
+            header: "Podczas logowania wystąpiło {{count}} błędów"
+        models:
+            user:
+                attributes:
+                    email:
+                        too_short: "jest zbyt krótki"
+                    login:
+                        too_short: "jest zbyt krótki"
+                    password:
+                        too_short: "jest zbyt krótkie"
+                        confirmation: "hasło i potwierdzenie nie zgadzają się!"
+                    password_confirmation:
+                        too_short: "chyba brakuje jakiejś litery.."
+
+
+
+
+
+
+
