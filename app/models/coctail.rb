@@ -5,8 +5,6 @@ class Coctail < ActiveRecord::Base
   has_many :ratings
   belongs_to :user
   has_attached_file :photo, :styles => {:thumb=> "100x100#", :small  => "150x150>"}
-  attr_accessible :coctails, :user_id
-
   
   def self.search(search)
     if search.length > 0

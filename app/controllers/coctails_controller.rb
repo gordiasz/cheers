@@ -1,6 +1,6 @@
 class CoctailsController < ApplicationController
   auto_complete_for :ingredient, :name
-
+  
   def index
     if params[:ingredient_id]
       ing = Ingredient.find(params[:ingredient_id])

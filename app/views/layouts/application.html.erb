@@ -19,7 +19,6 @@
     	<%= link_to "Edycja profilu", edit_user_path(current_user.login) %>
     	<%= link_to "Wyloguj", logout_path %>
 	Hello <em><%= current_user.login %></em>
-
   	<% else %>
     	<%= link_to "Rejestracja", new_user_path %>
     	<%= link_to "Logowanie", login_path %>
