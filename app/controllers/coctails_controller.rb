@@ -98,7 +98,6 @@ class CoctailsController < ApplicationController
   
   def update
     @coctail = Coctail.find(params[:id])
-    @coctail.user = current_user
     
     @coctail.ingredients = []
     
