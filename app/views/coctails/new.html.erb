@@ -3,23 +3,59 @@
 <% form_for(@coctail, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
-  <p>
+  <div>
     <%= f.label 'Nazwa:' %><br />
     <%= f.text_field :name %><br />
-	<%= f.label 'Składniki:' %><br />
-	<%= f.label 'Składnik 1:' %><%= text_field_tag :ing1 %><%= text_field_tag :info1 %><br />
-	<%= f.label 'Składnik 2:' %><%= text_field_tag :ing2 %><%= text_field_tag :info2 %><br />
-	<%= f.label 'Składnik 3:' %><%= text_field_tag :ing3 %><%= text_field_tag :info3 %><br />
-	<%= f.label 'Składnik 4:' %><%= text_field_tag :ing4 %><%= text_field_tag :info4 %><br />
-	<%= f.label 'Składnik 5:' %><%= text_field_tag :ing5 %><%= text_field_tag :info5 %><br />
-	<%= f.label 'Składnik 6:' %><%= text_field_tag :ing6 %><%= text_field_tag :info6 %><br />
-	<%= f.label 'Sposób przygotowania:' %><br />
-    <%= f.text_area :recipe, :size => "50x10" %>
-	<p>
-	  	<%= f.label 'Zdjęcie' %><br />
-	  	<%= f.file_field :photo %>
-	</p>
-  </p>
+	
+	<div>
+	    <p><%= f.label 'Składniki:' %></p>
+	    <table>
+	        <tr>
+	        	<td></td>
+				<td>Nazwa:</td>
+				<td>Ile:</td>
+			</tr>
+			<tr>
+				<td><%= f.label 'Składnik 1:' %></td>
+				<td><%= text_field_tag :ing1 %></td>
+				<td><%= text_field_tag :info1 %></td>
+			</tr>
+			<tr>
+				<td><%= f.label 'Składnik 2:' %></td>
+				<td><%= text_field_tag :ing2 %></td>
+				<td><%= text_field_tag :info2 %></td>
+			</tr>
+			<tr>
+				<td><%= f.label 'Składnik 3:' %></td>
+				<td><%= text_field_tag :ing3 %></td>
+				<td><%= text_field_tag :info3 %></td>
+			</tr>
+			<tr>
+				<td><%= f.label 'Składnik 4:' %></td>
+				<td><%= text_field_tag :ing4 %></td>
+				<td><%= text_field_tag :info4 %></td>
+			</tr>
+			<tr>
+				<td><%= f.label 'Składnik 5:' %></td>
+				<td><%= text_field_tag :ing5 %></td>
+				<td><%= text_field_tag :info5 %></td>
+			</tr>
+			<tr>
+				<td><%= f.label 'Składnik 6:' %></td>
+				<td><%= text_field_tag :ing6 %></td>
+				<td><%= text_field_tag :info6 %></td>
+			</tr>
+		</table>
+	</div>
+	<div>
+		<%= f.label 'Sposób przygotowania:' %><br />
+	    <%= f.text_area :recipe, :size => "50x10" %>
+		<p>
+		  	<%= f.label 'Zdjęcie' %><br />
+		  	<%= f.file_field :photo %>
+		</p>
+	</div>
+  </div>
   <p>
     <%= f.submit 'Dodaj' %>
   </p>
