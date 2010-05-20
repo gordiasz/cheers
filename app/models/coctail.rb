@@ -1,5 +1,6 @@
 class Coctail < ActiveRecord::Base
-  has_and_belongs_to_many :ingredients
+  has_many :coctails_ingredients
+  has_many :ingredients, :through => :coctails_ingredients
   has_many :comments
   has_many :ratings
   belongs_to :user

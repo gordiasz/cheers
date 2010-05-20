@@ -14,6 +14,7 @@
 	<% @coctail.ingredients.each do |ingredient| %>
 	  <tr>
 	    <td><%=h ingredient.name %></td>
+		<td><%=h @coctail.coctails_ingredients.first(:conditions => ['ingredient_id = ?', ingredient.id]).info %></td>
 	  </tr>
 	<% end %>
 </table>

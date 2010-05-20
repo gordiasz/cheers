@@ -7,12 +7,12 @@
     <%= f.label 'Nazwa:' %><br />
     <%= f.text_field :name %><br />
 	<%= f.label 'Składniki:' %><br />
-	<%= f.label 'Składnik 1:' %><%= text_field_tag :ing1 %><br />
-	<%= f.label 'Składnik 2:' %><%= text_field_tag :ing2 %><br />
-	<%= f.label 'Składnik 3:' %><%= text_field_tag :ing3 %><br />
-	<%= f.label 'Składnik 4:' %><%= text_field_tag :ing4 %><br />
-	<%= f.label 'Składnik 5:' %><%= text_field_tag :ing5 %><br />
-	<%= f.label 'Składnik 6:' %><%= text_field_tag :ing6 %><br />
+	<%= f.label 'Składnik 1:' %><%= text_field_tag :ing1, @ing[0] %><%= text_field_tag :info1, @info[0] %><br />
+	<%= f.label 'Składnik 2:' %><%= text_field_tag :ing2, @ing[1] %><%= text_field_tag :info2, @info[1] %><br />
+	<%= f.label 'Składnik 3:' %><%= text_field_tag :ing3, @ing[2] %><%= text_field_tag :info3, @info[2] %><br />
+	<%= f.label 'Składnik 4:' %><%= text_field_tag :ing4, @ing[3] %><%= text_field_tag :info4, @info[3] %><br />
+	<%= f.label 'Składnik 5:' %><%= text_field_tag :ing5, @ing[4] %><%= text_field_tag :info5, @info[4] %><br />
+	<%= f.label 'Składnik 6:' %><%= text_field_tag :ing6, @ing[5] %><%= text_field_tag :info6, @info[5] %><br />
 	<%= f.label 'Sposób przygotowania:' %><br />
     <%= f.text_area :recipe, :size => "50x10" %>
 	<p>

@@ -66,26 +66,33 @@ class CoctailsController < ApplicationController
 
   def edit
     @coctail = Coctail.find(params[:id])
+    @ing = ['','','','','','']
+    @info = ['','','','','','']
+    i = 0
+    @coctail.ingredients.each do |ii|
+      @ing[i] = ii.name
+      @info[i] = @coctail.coctails_ingredients.first(:conditions => ['ingredient_id = ?', ii.id]).info
+      i+=1
+    end
   end
 
   def create
     @coctail = Coctail.new(params[:coctail])
     @coctail.user = current_user
     
-    [:ing1, :ing2, :ing3, :ing4, :ing5, :ing6].each do |i|
-      ing_name = params[i].strip
+    @coctail.save
+    
+    [[:ing1,:info1], [:ing2,:info2], [:ing3,:info3], [:ing4,:info4], [:ing5,:info5], [:ing6,:info6]].each do |i|
+      ing_name = params[i[0]].strip
       if ing_name.length > 0
-        @coctail.ingredients << Ingredient.get_or_create_by_name(ing_name)
+        new_ing = Ingredient.get_or_create_by_name(ing_name)
+        @coctail.coctails_ingredients.create(:ingredient_id => new_ing.id,  :info => params[i[1]].strip)
       end
     end
     
     respond_to do |format|
-      if @coctail.save
-        flash[:notice] = 'Drink został dodany.'
-        format.html { redirect_to(@coctail) }
-      else
-        format.html { render :action => "new" }
-      end
+      flash[:notice] = 'Drink został dodany.'
+      format.html { redirect_to(@coctail) }
     end
   end
   
@@ -95,10 +102,11 @@ class CoctailsController < ApplicationController
     
     @coctail.ingredients = []
     
-    [:ing1, :ing2, :ing3, :ing4, :ing5, :ing6].each do |i|
-      ing_name = params[i].strip
+    [[:ing1,:info1], [:ing2,:info2], [:ing3,:info3], [:ing4,:info4], [:ing5,:info5], [:ing6,:info6]].each do |i|
+      ing_name = params[i[0]].strip
       if ing_name.length > 0
-        @coctail.ingredients << Ingredient.get_or_create_by_name(ing_name)
+        new_ing = Ingredient.get_or_create_by_name(ing_name)
+        @coctail.coctails_ingredients.create(:ingredient_id => new_ing.id,  :info => params[i[1]].strip)
       end
     end
     
@@ -114,6 +122,7 @@ class CoctailsController < ApplicationController
     
   def destroy
     @coctail = Coctail.find(params[:id])
+    @coctail.ingredients.clear
     @coctail.destroy
 
     respond_to do |format|
