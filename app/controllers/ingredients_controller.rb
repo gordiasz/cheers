@@ -1,7 +1,6 @@
 class IngredientsController < ApplicationController
   def index
-    @ingredients = Ingredient.paginate :page => params[:page], :per_page => 10,
-       :order => 'updated_at DESC'
+    @ingredients = Ingredient.paginate :page => params[:page], :per_page => 10, :order => 'upper(name)'
   end
   
   def new

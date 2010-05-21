@@ -13,8 +13,7 @@ class CoctailsController < ApplicationController
         render :list_by_ingredients
       end
     else
-      @coctails = Coctail.paginate :page => params[:page], :per_page => 10,
-         :order => 'updated_at DESC'
+      @coctails = Coctail.paginate :page => params[:page], :per_page => 10, :order => 'upper(name)'
       render :list
     end
   end
